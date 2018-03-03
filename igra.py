@@ -52,7 +52,7 @@ class Igra:
         clear()
         self.prikaziStatistiku()
         
-        print("\n", mojSto.dobijStringKarata(), "\n\n Ukupan iznos Vaših karata je: {0}".format(mojSto.vrednost))
+        print("\n", mojSto.dobijStringKarata()) #"\n\n Ukupan iznos Vaših karata je: {0}".format(mojSto.vrednost))
 
         if mojSto.vrednost > 21:
             print("\n IZGUBILI ste ulog za ovaj krug jer Vam vrednost karata prelazi 21.\n")
@@ -62,7 +62,7 @@ class Igra:
             self.noviKrug()
 
         else:
-            odgovor = input(" Da li želite da vučete još jednu kartu (d/n)? ").upper()
+            odgovor = input("\n Da li želite da vučete još jednu kartu (d/n)? ").upper()
 
             if odgovor == "D":
                 mojSto.dodajKartu()
@@ -88,7 +88,10 @@ class Igra:
             while protivnickiSto.vrednost < 16:
                 protivnickiSto.dodajKartu()
 
-        print("\n", protivnickiSto.dobijStringKarata(), "\n\n Ukupan iznos protivničkih karata je: {0}".format(protivnickiSto.vrednost))
+        print("\n", protivnickiSto.dobijStringKarata()) 
+        time.sleep(3)
+        print("\n\n Ukupan iznos protivničkih karata je: {0}".format(protivnickiSto.vrednost))
+
 
         if mojSto.vrednost > protivnickiSto.vrednost:
             self.pobeda("POBEDILI ste u ovom krugu jer imate veću vrednost karata od delioca.")
