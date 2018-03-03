@@ -1,40 +1,30 @@
 import os
+
 from igra import *
 
 clear = lambda: os.system("clear")
-novac, tezina = None, None
 
 def pocetna_stranica():
     stranica = """
-                        PYTHON BLACK-JACK ĐORĐA GLUVAJIĆA                               
-                                     V.0.0.1
+                      .===================================.
+                      | PYTHON BLACK-JACK ĐORĐA GLUVAJIĆA |                              
+                      |              V0.0.1               | 
+                      .===================================.
                                 
                                 
-                        Pritisnite ENTER za nastavak . . .
+                                   1. Normalno
+                                   2. Teško
+                                   3. Nemoguće
     """
     clear()
     print(stranica)
-    input("")
-    izaberi_tezinu()
-
-def izaberi_tezinu():
-    stranica = """
-                        PYTHON BLACK-JACK ĐORĐA GLUVAJIĆA                               
-                                     V.0.0.1
-                                
-                                
-                               Izaberite težinu igre:
-
-                                1. Normalno
-                                2. Teško
-                                3. Nemoguće
-    """
-    clear()
-    print(stranica)
-    global tezina
-    tezina = input("")
+    tezina = -1
+    while tezina < 1 or tezina > 3:
+        tezina = int(input("\t\t\tIzaberite težinu igre (1/2/3): "))
+        if tezina < 1 or tezina > 3:
+            print("\n\tUnesite brojeve '1', '2' ili '3' da biste izabrali težinu igre.\n")
     igra = Igra(1000, tezina)
-    igra.novi_krug()
+    igra.noviKrug()
 
 if __name__ == "__main__":
     pocetna_stranica()
