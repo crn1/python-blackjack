@@ -33,7 +33,6 @@ class Igra:
 
             print("\n Iznos Vašeg novca je manji od minimalnog uloga za ovaj krug i zato igra više ne može da se nastavi.\n\n\t\t\t* * * UKUPAN REZULTAT: {0} * * *\n ".format(self.rezultat))  
             input(" Pritisnite ENTER za povratak na početnu stranicu.")
-            pocetna_stranica()
 
         else:
             self.prikaziStatistiku()
@@ -92,18 +91,18 @@ class Igra:
         print("\n", protivnickiSto.dobijStringKarata(), "\n\n Ukupan iznos protivničkih karata je: {0}".format(protivnickiSto.vrednost))
 
         if mojSto.vrednost > protivnickiSto.vrednost:
-            self.pobeda("POBEDILI ste u ovom krugu jer imate veću vrednost i/ili manji broj izvučenih karata od delioca.")
+            self.pobeda("POBEDILI ste u ovom krugu jer imate veću vrednost karata od delioca.")
         elif protivnickiSto.vrednost > 21:
             self.pobeda("POBEDILI ste u ovom krugu jer protivnik ima vrednost karata preko 21.")
         elif mojSto.vrednost == protivnickiSto.vrednost:
             if len(mojSto.karte) < len(protivnickiSto.karte):
-                self.pobeda()
+                self.pobeda("POBEDILI ste u ovom krugu jer ste izvukli manje karata od delioca.")
             if len(mojSto.karte) > len(protivnickiSto.karte):
-                self.poraz() 
+                self.poraz("IZGUBILI ste u ovom krugu jer je delilac izvukao manji broj karata.") 
             if len(mojSto.karte) == len(protivnickiSto.karte):
                 self.nereseno() 
         elif mojSto.vrednost < protivnickiSto.vrednost:
-            self.poraz("IZGUBILI ste u ovom krugu jer imate manju vrednost i/ili veći broj izvučenih karata od delioca!")
+            self.poraz("IZGUBILI ste u ovom krugu jer imate manju vrednost karata od delioca!")
 
         input("\n Pritisnite ENTER za početak sledećeg kruga.")
         self.noviKrug()
