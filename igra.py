@@ -34,6 +34,7 @@ class Igra:
 
             print("\n Iznos Vašeg novca je manji od minimalnog uloga za ovaj krug i zato igra više ne\n može da se nastavi.\n\n\t\t\t* * * UKUPAN REZULTAT: {0} * * *\n ".format(math.floor(self.rezultat)))  
             input(" Pritisnite ENTER za povratak na početnu stranicu.")
+            pocetna_stranica()
 
         else:
             self.prikaziStatistiku()
