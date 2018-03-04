@@ -32,7 +32,7 @@ class Igra:
             self.rezultat += self.krug*self.rezultat//10 
             self.rezultat *= (self.tezina + (self.tezina / 10))
 
-            print("\n Iznos Vašeg novca je manji od minimalnog uloga za ovaj krug i zato igra više ne može da se nastavi.\n\n\t\t\t* * * UKUPAN REZULTAT: {0} * * *\n ".format(math.floor(self.rezultat)))  
+            print("\n Iznos Vašeg novca je manji od minimalnog uloga za ovaj krug i zato igra više ne\n može da se nastavi.\n\n\t\t\t* * * UKUPAN REZULTAT: {0} * * *\n ".format(math.floor(self.rezultat)))  
             input(" Pritisnite ENTER za povratak na početnu stranicu.")
 
         else:
@@ -42,7 +42,7 @@ class Igra:
             while self.ulog < self.minUlog or self.ulog > self.novac:
                 self.ulog = int(input("\n Unesite ulog za ovaj krug: "))
                 if self.ulog < self.minUlog or self.ulog > self.novac:
-                    print("\n Vaš ulog mora biti veći od minimalnog uloga za ovaj krug, a manji ili jednak iznosu novca koji posedujete.")
+                    print("\n Vaš ulog mora biti veći od minimalnog uloga za ovaj krug, a manji ili jednak\n iznosu novca koji posedujete.")
 
             mojSto = Sto()
             mojSto.dodajKartu()
