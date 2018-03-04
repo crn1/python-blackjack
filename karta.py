@@ -2,11 +2,11 @@ import random
 
 class Karta:
 
-    znakovi = ("PIK", "KARO", "TREF", "SRCE")
+    znakovi = ("PIK", "KARO", "TREF", "SRCE", "CUMUR")
     imena = ("JEDINICA", "DVOJKA", "TROJKA", "ČETVORKA", "PETICA", "ŠESTICA", "SEDMICA", "OSMICA", "DEVETKA", "DESETKA", "ŽANDAR", "DAMA", "KRALJ") 
 
     def __init__(self):
-        self.znak = random.randint(0, 3)
+        self.znak = random.randint(1, 4)
         self.ime = random.randint(0, 12)
         self.stringZnak = self.znakovi[self.znak] 
         self.stringIme = self.imena[self.znak] 
@@ -43,3 +43,5 @@ class Karta:
             self.charZnak = "♣"
         elif self.znak == 3:
             self.charZnak = "♥"
+        elif self.znak == 4:
+            self.charZnak = "•" 
