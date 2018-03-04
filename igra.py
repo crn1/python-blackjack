@@ -84,13 +84,13 @@ class Igra:
         protivnickiSto.dodajKartu()
 
         if self.tezina == 1:
-            while protivnickiSto.vrednost < 14:
-                protivnickiSto.dodajKartu()
-        elif self.tezina == 2:
             while protivnickiSto.vrednost < 15:
                 protivnickiSto.dodajKartu()
-        elif self.tezina == 3:
+        elif self.tezina == 2:
             while protivnickiSto.vrednost < 16:
+                protivnickiSto.dodajKartu()
+        elif self.tezina == 3:
+            while protivnickiSto.vrednost < mojSto.vrednost:
                 protivnickiSto.dodajKartu()
 
         protivnickiSto.prikazi()
