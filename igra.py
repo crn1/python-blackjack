@@ -65,11 +65,11 @@ class Igra:
         else:
             odgovor = input("\n Da li želite da vučete još jednu kartu (d/n)? ").upper()
 
-        if odgovor == "D":
-            mojSto.dodajKartu()
-            self.prikaziSto(mojSto)
-        else:
-            self.uporedjivanje(mojSto)
+            if odgovor == "D":
+                mojSto.dodajKartu()
+                self.prikaziSto(mojSto)
+            else:
+                self.uporedjivanje(mojSto)
 
     def uporedjivanje(self, mojSto):
         clear()

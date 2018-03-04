@@ -22,6 +22,7 @@ def pocetna_stranica():
     clear()
     print(stranica)
     tezina = -1
+
     while tezina < 0 or tezina > 3:
         tezina = int(input("\t\t\tIzaberite opciju (1/2/3/0): "))
         if tezina < 0 or tezina > 3:
@@ -30,6 +31,8 @@ def pocetna_stranica():
     if tezina >= 1 and tezina <= 3:
         igra = Igra(50, tezina)
         igra.noviKrug()
+        pocetna_stranica()
+
     elif tezina == 0:
         sys.exit()
 
