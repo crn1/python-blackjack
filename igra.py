@@ -55,15 +55,15 @@ class Igra:
         
         mojSto.prikazi() #"\n\n Ukupan iznos Vaših karata je: {0}".format(mojSto.vrednost))
 
-        """if mojSto.vrednost > 21:
+        if mojSto.vrednost > 21:
             print("\n IZGUBILI ste ulog za ovaj krug jer Vam vrednost karata prelazi 21.\n")
             input(" Pritisnite ENTER za ulazak u sledeći krug.")
             self.novac -= self.ulog
 
             self.noviKrug()
 
-        else:"""
-        odgovor = input("\n Da li želite da vučete još jednu kartu (d/n)? ").upper()
+        else:
+            odgovor = input("\n Da li želite da vučete još jednu kartu (d/n)? ").upper()
 
         if odgovor == "D":
             mojSto.dodajKartu()
