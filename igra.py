@@ -137,7 +137,7 @@ class Igra:
         self.novac -= self.ulog
 
     def prikaziStatistiku(self):
-        print("\n===============================================================================\n\tKrug broj: {0}\t|\tNovac: {1}\t|\tMinimalni ulog: {2}\n===============================================================================".format(self.krug, self.novac, self.minUlog)) 
+        print("===============================================================================\n\tKrug broj: {0}\t|\tNovac: {1}\t|\tMinimalni ulog: {2}\n===============================================================================".format(self.krug, self.novac, self.minUlog)) 
 
 
 
