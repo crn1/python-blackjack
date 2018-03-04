@@ -20,7 +20,7 @@ class Sto:
     def izbrisiKarte(self):
         self.karte[:] = []
 
-    def dobijStringKarata(self):
+    def prikazi(self):
         prikaz = []
         for x in range(0, 5):    
             prikaz.append("")
@@ -42,5 +42,4 @@ class Sto:
 
         prikaz_formiran = "\n".join(prikaz)
 
-        return prikaz_formiran
-        
+        print("\n", prikaz_formiran) 

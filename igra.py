@@ -53,7 +53,7 @@ class Igra:
         clear()
         self.prikaziStatistiku()
         
-        print("\n", mojSto.dobijStringKarata()) #"\n\n Ukupan iznos Vaših karata je: {0}".format(mojSto.vrednost))
+        mojSto.prikazi() #"\n\n Ukupan iznos Vaših karata je: {0}".format(mojSto.vrednost))
 
         if mojSto.vrednost > 21:
             print("\n IZGUBILI ste ulog za ovaj krug jer Vam vrednost karata prelazi 21.\n")
@@ -72,6 +72,10 @@ class Igra:
                 self.uporedjivanje(mojSto)
 
     def uporedjivanje(self, mojSto):
+        clear()
+        self.prikaziStatistiku()
+        mojSto.prikazi()
+
         print("\n\n\t\t\t* * * Delilac igra * * *")
         time.sleep(random.randint(3, 7))
 
@@ -89,7 +93,7 @@ class Igra:
             while protivnickiSto.vrednost < 16:
                 protivnickiSto.dodajKartu()
 
-        print("\n", protivnickiSto.dobijStringKarata()) 
+        protivnickiSto.prikazi()
         time.sleep(3)
         print("\n\n Ukupan iznos protivničkih karata je: {0}".format(protivnickiSto.vrednost))
 
