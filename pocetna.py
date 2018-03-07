@@ -30,6 +30,8 @@ def pocetna_stranica():
     if tezina >= 1 and tezina <= 3:
         igra = Igra(50, tezina)
         igra.noviKrug()
+        pocetna_stranica()
+
     elif tezina == 0:
         sys.exit()
 

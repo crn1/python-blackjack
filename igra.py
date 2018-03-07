@@ -34,7 +34,6 @@ class Igra:
 
             print("\n Iznos Vašeg novca je manji od minimalnog uloga za ovaj krug i zato igra više ne\n može da se nastavi.\n\n\t\t\t* * * UKUPAN REZULTAT: {0} * * *\n ".format(math.floor(self.rezultat)))  
             input(" Pritisnite ENTER za povratak na početnu stranicu.")
-            pocetna_stranica()
 
         else:
             self.prikaziStatistiku()
@@ -60,7 +59,6 @@ class Igra:
             print("\n IZGUBILI ste ulog za ovaj krug jer Vam vrednost karata prelazi 21.\n")
             input(" Pritisnite ENTER za ulazak u sledeći krug.")
             self.novac -= self.ulog
-
             self.noviKrug()
 
         else:
@@ -122,7 +120,7 @@ class Igra:
         if self.tezina == 1:
             dobitak = self.ulog * 2 
         elif self.tezina == 2:
-            dobitak = self.ulog * 1.5
+            dobitak = math.floor(self.ulog * 1.5)
         elif self.tezina == 3:
             dobitak = self.ulog
 
@@ -138,7 +136,7 @@ class Igra:
         self.novac -= self.ulog
 
     def prikaziStatistiku(self):
-        print("\n===============================================================================\n\tKrug broj: {0}\t|\tNovac: {1}\t|\tMinimalni ulog: {2}\n===============================================================================".format(self.krug, self.novac, self.minUlog)) 
+        print("===============================================================================\n\tKrug broj: {0}\t|\tNovac: {1}\t|\tMinimalni ulog: {2}\n===============================================================================".format(self.krug, self.novac, self.minUlog)) 
 
 
 
