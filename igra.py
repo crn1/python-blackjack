@@ -23,7 +23,6 @@ class Igra:
 
     def noviKrug(self):
         self.krug += 1
-        iznosKarata = 0
 
         clear()
         self.postaviMinUlog()
@@ -47,28 +46,29 @@ class Igra:
             mojSto = Sto()
             mojSto.dodajKartu()
             mojSto.dodajKartu()
-            self.prikaziSto(mojSto)
 
-    def prikaziSto(self, mojSto):
-        clear()
-        self.prikaziStatistiku()
-        
-        mojSto.prikazi() #"\n\n Ukupan iznos Vaših karata je: {0}".format(mojSto.vrednost))
+            while True: 
+                clear()
+                self.prikaziStatistiku()
+                mojSto.prikazi() #"\n\n Ukupan iznos Vaših karata je: {0}".format(mojSto.vrednost))
 
-        if mojSto.vrednost > 21:
-            print("\n IZGUBILI ste ulog za ovaj krug jer Vam vrednost karata prelazi 21.\n")
-            input(" Pritisnite ENTER za ulazak u sledeći krug.")
-            self.novac -= self.ulog
+                if mojSto.vrednost > 21:
+                    print("\n IZGUBILI ste ulog za ovaj krug jer Vam vrednost karata prelazi 21.\n")
+                    input(" Pritisnite ENTER za ulazak u sledeći krug.")
+                    self.novac -= self.ulog
+                    break
+
+                else:
+                    odgovor = input("\n Da li želite da vučete još jednu kartu (d/n)? ").upper()
+
+                if odgovor == "D":
+                    mojSto.dodajKartu()
+
+                else:
+                    self.uporedjivanje(mojSto)
+                    break
+
             self.noviKrug()
-
-        else:
-            odgovor = input("\n Da li želite da vučete još jednu kartu (d/n)? ").upper()
-
-        if odgovor == "D":
-            mojSto.dodajKartu()
-            self.prikaziSto(mojSto)
-        else:
-            self.uporedjivanje(mojSto)
 
     def uporedjivanje(self, mojSto):
         clear()
@@ -112,7 +112,6 @@ class Igra:
             self.poraz("IZGUBILI ste u ovom krugu jer imate manju vrednost karata od delioca!")
 
         input("\n Pritisnite ENTER za početak sledećeg kruga.")
-        self.noviKrug()
 
     def pobeda(self, razlog):
         dobitak = 0
