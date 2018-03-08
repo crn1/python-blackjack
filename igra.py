@@ -23,7 +23,6 @@ class Igra:
 
     def noviKrug(self):
         self.krug += 1
-        iznosKarata = 0
 
         clear()
         self.postaviMinUlog()
@@ -49,29 +48,29 @@ class Igra:
             mojSto = Sto()
             mojSto.dodajKartu()
             mojSto.dodajKartu()
-            self.prikaziSto(mojSto)
 
-    def prikaziSto(self, mojSto):
-        clear()
-        self.prikaziStatistiku()
-        
-        mojSto.prikazi() #"\n\n Ukupan iznos Vaših karata je: {0}".format(mojSto.vrednost))
+            while True: 
+                clear()
+                self.prikaziStatistiku()
+                mojSto.prikazi() #"\n\n Ukupan iznos Vaših karata je: {0}".format(mojSto.vrednost))
 
-        if mojSto.vrednost > 21:
-            print("\n PRESHO 21 AHHHAHAHAHAHAHAHAHAHHAHAHAHAHA :'(\n")
-            input(" Pritisnider ENTER za ulazak u sledeći krug.")
-            self.novac -= self.ulog
+                if mojSto.vrednost > 21:
+                    print("\n PRESHO 21 AHHHAHAHAHAHAHAHAHAHHAHAHAHAHA :'(\n")
+                    input(" Pritisnider ENTER za ulazak u sledeći krug.")
+                    self.novac -= self.ulog
+                    break
+
+                else:
+                    odgovor = input("\n Oćeš vući još jednu kartu (SAMO ĆU REĆI D/n? ").upper()
+
+                if odgovor == "D":
+                    mojSto.dodajKartu()
+
+                else:
+                    self.uporedjivanje(mojSto)
+                    break
 
             self.noviKrug()
-
-        else:
-            odgovor = input("\n Oces vuci kartu jos jednu (SAMO CU RECI D/n)? ").upper()
-
-            if odgovor == "D":
-                mojSto.dodajKartu()
-                self.prikaziSto(mojSto)
-            else:
-                self.uporedjivanje(mojSto)
 
     def uporedjivanje(self, mojSto):
         clear()
@@ -115,7 +114,6 @@ class Igra:
             self.poraz("Izgubio si. Sto si prso?")
 
         input("\n Pritisnider ENTER za početak sledećeg kruga.")
-        self.noviKrug()
 
     def pobeda(self, razlog):
         dobitak = 0
@@ -123,7 +121,7 @@ class Igra:
         if self.tezina == 1:
             dobitak = self.ulog * 2 
         elif self.tezina == 2:
-            dobitak = self.ulog * 1.5
+            dobitak = math.floor(self.ulog * 1.5)
         elif self.tezina == 3:
             dobitak = self.ulog
 
