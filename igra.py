@@ -61,7 +61,7 @@ class Igra:
                     break
 
                 else:
-                    odgovor = input("\n Oćeš vući još jednu kartu (SAMO ĆU REĆI D/n? ").upper()
+                    odgovor = input("\n Oćeš vući još jednu kartu (SAMO ĆU REĆI D/n?) ").upper()
 
                 if odgovor == "D":
                     mojSto.dodajKartu()
