@@ -8,27 +8,26 @@ clear = lambda: os.system("clear")
 def pocetna_stranica():
     stranica = """
                       .===================================.
-                      | PYTHON BLACK-JACK ĐORĐA GLUVAJIĆA |                              
-                      |              V0.0.1               | 
-                      .==M=A=N=Dž=U=R=I=J=A=N==E=D=I=Š=N==.
-                                
-                                     Ja sam: 
-                            ========================
-                            1. Malo mudo
-                            2. Veliko mudo
-                            3. Sistemaš
+                      | PYTHON BLACK-JACK ĐORĐA GLUVAJIĆA |
+                      |              V0.0.1               |
+                      .===================================.
 
-                            0. Debil (izađi napolje)
+                                Izaberite težinu:
+                            ========================
+                            1. Normalno
+                            2. Teško
+                            3. Nemoguće
+
+                            0. Izađi iz aplikacije
     """
     clear()
     print(stranica)
     tezina = -1
 
     while tezina < 0 or tezina > 3:
-        tezina = int(input("\t\t\tIzaberder opciju (1/2/3/0): "))
+        tezina = int(input("\t\t\tIzaberte opciju (1/2/3/0): "))
         if tezina < 0 or tezina > 3:
-            lista = ("Esi ti kreten?", "Ozb si debil lepo kucaj", "Nemere to ludi")
-            print("\t\t\t  ", radnom.choice(lista))
+            print("\t\t\t\t\t\t Uneli ste pogrešnu vrednost")
 
     if tezina >= 1 and tezina <= 3:
         igra = Igra(50, tezina)

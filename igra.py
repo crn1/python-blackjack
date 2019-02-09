@@ -12,7 +12,7 @@ class Igra:
         self.krug = 0
         self.minUlog = 0
         self.rezultat = 0
-        
+
     def postaviMinUlog(self):
         if self.tezina == 1:
             self.minUlog += (self.novac // 20)
@@ -28,40 +28,38 @@ class Igra:
         self.postaviMinUlog()
 
         if self.novac < self.minUlog:
-            self.rezultat += self.krug*self.rezultat//10 
+            self.rezultat += self.krug*self.rezultat//10
             self.rezultat *= (self.tezina + (self.tezina / 10))
 
-            plista = ("Pukosi jbg", "PUKOSI BRT", ":'(", "eeee moj ti pukosi", "zuriosm", "jesi", "da", "Pukosi. Ignorisem.", "PUKOSIDER", "pa pa pa pa pa paranoja", "smrk", "mrk", "popusio si jbg", "ASI TUNJAV PA NEMOZES TAKO IGRATI", "zec", "LUUUUUUUUUUUUUUKA", "e ovaj si se poslednji potez zajebao.... pukosi", "propo", "propo ko muda kroz suplje gace", "asi grindzav sta?")
-            print("\n {0}\n\n\t\t\t* * * UKUPAN REZ: {1} * * *\n ".format(random.choice(plista), math.floor(self.rezultat)))  
-            input(" Pritisnider ENTER za povratak na početnu stranicu.")
+            print("\n Izgubili ste sav novac, time gubeći i ovu igru!\n\n\t\t\t* * * UKUPAN REZULTAT: {0} * * *\n ".format(int(self.rezultat)))
+            input(" Pritisnite ENTER za povratak na početnu stranicu.")
 
         else:
             self.prikaziStatistiku()
 
             self.ulog = -1
             while self.ulog < self.minUlog or self.ulog > self.novac:
-                self.ulog = int(input("\n Unesider ulog za ovaj krug: "))
+                self.ulog = int(input("\n Unesite ulog za ovaj krug: "))
                 if self.ulog < self.minUlog or self.ulog > self.novac:
-                    lista = ["Esi ti kreten?", "Ozb si debil lepo kucaj", "Nemere to ludi"]
-                    print("\t\t\t  ", radnom.choice(lista))
+                    print(" Vaš ulog mora ne sme da bude manji od minimalnog uloga za ovaj krug i iznosa\n Vašeg novca!")
 
             mojSto = Sto()
             mojSto.dodajKartu()
             mojSto.dodajKartu()
 
-            while True: 
+            while True:
                 clear()
                 self.prikaziStatistiku()
                 mojSto.prikazi() #"\n\n Ukupan iznos Vaših karata je: {0}".format(mojSto.vrednost))
 
                 if mojSto.vrednost > 21:
-                    print("\n PRESHO 21 AHHHAHAHAHAHAHAHAHAHHAHAHAHAHA :'(\n")
-                    input(" Pritisnider ENTER za ulazak u sledeći krug.")
+                    print("\n Iznos vaših karata prelazi 21. Izgubili ste Vaš ulog za ovaj krug.")
+                    input(" Pritisnite ENTER za ulazak u sledeći krug.")
                     self.novac -= self.ulog
                     break
 
                 else:
-                    odgovor = input("\n Oćeš vući još jednu kartu (SAMO ĆU REĆI D/n?) ").upper()
+                    odgovor = input("\n Da li hoćete da vučete još jednu kartu (d/n)? ").upper()
 
                 if odgovor == "D":
                     mojSto.dodajKartu()
@@ -77,7 +75,7 @@ class Igra:
         self.prikaziStatistiku()
         mojSto.prikazi()
 
-        print("\n\n\t\t\t* * * Delilac igra * * *")
+        print("\n\n\t\t\t* * * Domaćin igra * * *")
         time.sleep(random.randint(3, 7))
 
         protivnickiSto = Sto()
@@ -100,26 +98,26 @@ class Igra:
 
 
         if mojSto.vrednost > protivnickiSto.vrednost:
-            self.pobeda("Pobedio si. Ignorišem.")
+            self.pobeda("Iznos Vaših karata je veći od domaćinovog. POBEDILI ste u ovom krugu!")
         elif protivnickiSto.vrednost > 21:
-            self.pobeda("Pobedio si. Čestitam.")
+            self.pobeda("Domaćinov iznos karata prelazi 21. POBEDILI ste u ovom krugu!")
         elif mojSto.vrednost == protivnickiSto.vrednost:
             if len(mojSto.karte) < len(protivnickiSto.karte):
-                self.pobeda("Pobedio si brt. Hvala.")
+                self.pobeda("Iako imate iste iznose karata, POBEDILI ste jer ste vukli manje karata.")
             if len(mojSto.karte) > len(protivnickiSto.karte):
-                self.poraz("Izgubio si zato sto da.") 
+                self.poraz("Iako imate iste iznose karata, IZGUBULI ste jer je domaćin vukao manje karata.")
             if len(mojSto.karte) == len(protivnickiSto.karte):
-                self.nereseno() 
+                self.nereseno()
         elif mojSto.vrednost < protivnickiSto.vrednost:
-            self.poraz("Izgubio si. Sto si prso?")
+            self.poraz("Iznos Vaših karata je manji od domaćinovog. IZGUBILI ste u ovom krugu!")
 
-        input("\n Pritisnider ENTER za početak sledećeg kruga.")
+        input("\n Pritisnite ENTER za početak sledećeg kruga.")
 
     def pobeda(self, razlog):
         dobitak = 0
 
         if self.tezina == 1:
-            dobitak = self.ulog * 2 
+            dobitak = self.ulog * 2
         elif self.tezina == 2:
             dobitak = math.floor(self.ulog * 1.5)
         elif self.tezina == 3:
@@ -130,25 +128,11 @@ class Igra:
         self.rezultat += dobitak
 
     def nereseno(self):
-        print("\n Ovaj krug je NEREŠEN. ok")
-        
+        print("\n Ovaj krug je NEREŠEN!")
+
     def poraz(self, razlog):
         print("\n", razlog, "\n Izgubili ste Vaš ulog za ovaj krug.")
         self.novac -= self.ulog
 
     def prikaziStatistiku(self):
-        temp = ""
-        if self.tezina == 3:
-            if self.novac > 1000:
-                temp = " (ok.)"
-            elif self.novac > 2000:
-                temp = " (usercina mrtva)"
-            elif self.novac > 3000:
-                temp = " (JEBENI BOLE)"
-            elif self.novac > 5000:
-                temp = " (SISTEMA)"
-        else:
-            if self.novac == 200:
-                temp = " :)"
-
-        print("===============================================================================\n\tKrug: {0}\t\t|\tIQ: {1}{2}\t|\tMinimalni ulog: {3}\n===============================================================================".format(self.krug, self.novac, temp, self.minUlog)) 
+        print("===============================================================================\n\tKrug: {0}\t\t|\tNovac: {1}\t|\tMinimalni ulog: {2}\n===============================================================================".format(self.krug, self.novac, self.minUlog))

@@ -3,13 +3,13 @@ import random
 class Karta:
 
     znakovi = ("PIK", "KARO", "TREF", "SRCE", "CUMUR")
-    imena = ("JEDINICA", "DVOJKA", "TROJKA", "ČETVORKA", "PETICA", "ŠESTICA", "SEDMICA", "OSMICA", "DEVETKA", "DESETKA", "ŽANDAR", "DAMA", "KRALJ") 
+    imena = ("JEDINICA", "DVOJKA", "TROJKA", "ČETVORKA", "PETICA", "ŠESTICA", "SEDMICA", "OSMICA", "DEVETKA", "DESETKA", "ŽANDAR", "DAMA", "KRALJ")
 
     def __init__(self):
-        self.znak = random.randint(1, 4)
+        self.znak = random.randint(0, 3)
         self.ime = random.randint(0, 12)
-        self.stringZnak = self.znakovi[self.znak] 
-        self.stringIme = self.imena[self.znak] 
+        self.stringZnak = self.znakovi[self.znak]
+        self.stringIme = self.imena[self.znak]
         self.postaviCharIme()
         self.postaviCharZnak()
         self.odrediVrednost()
@@ -20,7 +20,7 @@ class Karta:
         elif self.ime == 0:
             self.vrednost = "j"
         else:
-            self.vrednost = self.ime + 1 
+            self.vrednost = self.ime + 1
 
     def postaviCharIme(self):
         if self.ime == 0:
@@ -43,5 +43,3 @@ class Karta:
             self.charZnak = "♣"
         elif self.znak == 3:
             self.charZnak = "♥"
-        elif self.znak == 4:
-            self.charZnak = "•" 
